@@ -14,4 +14,4 @@ COPY main.py ./
 
 WORKDIR /drone/src
 
-ENTRYPOINT ["python", "/plugin/main.py"]
+CMD ["python", "/plugin/main.py"]
