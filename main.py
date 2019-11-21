@@ -24,7 +24,7 @@ def main():
     if 'PLUGIN_WEBHOOK_TEXT' in os.environ:
         additional_info = os.environ.get('PLUGIN_WEBHOOK_TEXT')
 
-    text = '{"@type": "MessageCard","@context": "http://schema.org/extensions","themeColor": "' + theme_color + '","summary": "Drone Pipelines","sections": [{"activityTitle": "A Drone Pipeline has been finished!","activitySubtitle": "For ![' + repo_name + '](' + repo_link + ')","activityImage": "https://github.com/drone/brand/blob/master/logos/png/dark/drone-logo-png-dark-512.png","facts": [{"name": "Status","value": "![' + status + '](' + build_link + ')"}, {"name": "Commit SHA","value": "![' + commit_sha + '](' + commit_link + ')"}, {"name": "Additional Info","value": "' + additional_info + '"}],"markdown": true}]}'
+    text = '{"@type": "MessageCard","@context": "http://schema.org/extensions","themeColor": "' + theme_color + '","summary": "Drone Pipelines","sections": [{"activityTitle": "A Drone Pipeline has been finished!","activitySubtitle": "For [' + repo_name + '](' + repo_link + ')","activityImage": "https://raw.githubusercontent.com/drone/brand/master/logos/png/dark/drone-logo-png-dark-512.png","facts": [{"name": "Status","value": "[' + status + '](' + build_link + ')"}, {"name": "Commit SHA","value": "[' + commit_sha + '](' + commit_link + ')"}, {"name": "Additional Info","value": "' + additional_info + '"}],"markdown": true}]}'
 
     data = text
     r = requests.post(url = webhook_url, data = data)
